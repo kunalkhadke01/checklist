@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Login from './Login';
-import Selfcam from './Selfcam';
+import ListView from './Listview';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Selfcam />, document.getElementById('root'));
+ReactDOM.render(<div>
+    <nav className="Header">
+        <h1>productmania</h1>
+    </nav>
+    <ListView />
+</div>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
