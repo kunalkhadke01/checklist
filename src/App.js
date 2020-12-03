@@ -31,10 +31,10 @@ const textArea2 = () => {
   )
 }
 
-function App() {
+function App(props) {
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Enter your details for shipping selected product</h1>
+      <h1 className="App-link" style={{ textAlign: "center" }}>Enter details for shipping selected product</h1>
       <Formik
         initialValues={{
           // username: '',
@@ -47,6 +47,7 @@ function App() {
         }}
         onSubmit={values => {
           // same shape as initial values
+          props.history.push({ pathname: "/detaillist", value: values })
           console.log(values);
         }}
       >
@@ -59,10 +60,12 @@ function App() {
             {errors.username && touched.username && <div>{errors.username}</div>} */}
             <Grid container xs={12} justify="center" alignContent="center" className="Form">
               <Grid item xs={12}>
-                <Field name="Address1" component={textArea} placeholder="Address line 1" />
+                <Field name="Address1" placeholder="Address line 1" />
               </Grid>
               <Grid item xs={12}>
-                <Field name="Address2" component={textArea2} placeholder="Address line 2" />
+                <Field name="Address2"
+                  // component={textArea2}
+                  placeholder="Address line 2" />
               </Grid>
               <Grid item xs={12}>
                 <Field name="Country" style={{ width: "27%" }} placeholder="Country" />
